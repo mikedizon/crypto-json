@@ -53,8 +53,6 @@ exports.encrypt = function (object, password, config) {
   var algorithm = config ? (config.algorithm || 'aes256') : 'aes256'
   var keys = config.keys || []
 
-  console.log('encrypt object', object);
-
   if (!object || typeof object !== 'object' || Array.isArray(object)) {
     throw new Error('First argument must be an object.')
   }
