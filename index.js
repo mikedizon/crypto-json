@@ -32,6 +32,7 @@ function cryptFunction (type) {
     for (var i = 0; i < length; i++) {
       var key = isArray ? i : objectKeys[i]
       if (!keys.length || (keys.indexOf(key) === -1)) {
+        
         if (typeof object[key] !== 'object') {
           output[key] = cryptValue(object[key])
         } else if (Array.isArray(object[key])) {
