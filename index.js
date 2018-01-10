@@ -32,7 +32,6 @@ function cryptFunction (type) {
     for (var i = 0; i < length; i++) {
       var key = isArray ? i : objectKeys[i]
       if (!keys.length || (keys.indexOf(key) === -1)) {
-        
         if (typeof object[key] !== 'object') {
           output[key] = cryptValue(object[key])
         } else if (Array.isArray(object[key])) {
@@ -53,6 +52,8 @@ exports.encrypt = function (object, password, config) {
   var encoding = config ? (config.encoding || 'hex') : 'hex'
   var algorithm = config ? (config.algorithm || 'aes256') : 'aes256'
   var keys = config.keys || []
+
+  console.log('encrypt object', object);
 
   if (!object || typeof object !== 'object' || Array.isArray(object)) {
     throw new Error('First argument must be an object.')
